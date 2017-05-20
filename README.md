@@ -19,4 +19,4 @@ Run the application:
 ./gradlew run
 ```
 
-Navigate to [http://localhost:8080]() to test
+Navigate to http://localhost:8080 to test
