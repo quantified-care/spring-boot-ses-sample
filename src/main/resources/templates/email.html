@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+    <title>Quantified Care Email Test</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" href="../static/css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}" />
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<h3 class="text-muted">Quantified Care Email Test</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<form name="email-form" role="form" th:action="@{/email}" method="post" th:object="${details}">
+				<div class="alerts">
+					<div th:if="${#fields.hasGlobalErrors()}">
+						<div th:each="error : ${#fields.globalErrors()}" th:text="${error}" class="alert alert-danger">Error</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="email" class="form-control" name="to" placeholder="To" autofocus="autofocus" th:value="*{to}" />
+					<span class="help-block">
+						<span th:errors="*{to}"></span>
+					</span>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name="subject" placeholder="Subject" th:value="*{subject}" />
+					<span class="help-block">
+						<span th:errors="*{subject}"></span>
+					</span>
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" name="body" placeholder="Body" th:value="*{body}"></textarea>
+					<span class="help-block">
+						<span th:errors="*{body}"></span>
+					</span>
+				</div>
+				<button type="submit" class="btn btn-primary">Send</button>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

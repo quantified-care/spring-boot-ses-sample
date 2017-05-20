@@ -1,0 +1,10 @@
+security:
+  basic:
+    enabled: false
+
+mail:
+  from: support@quantifiedcare.com
+
+ses:
+  access-key: <KEY HERE>
+  secret-key: <SECRET HERE>
